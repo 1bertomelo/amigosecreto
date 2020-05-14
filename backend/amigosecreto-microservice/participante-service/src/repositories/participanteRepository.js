@@ -19,7 +19,7 @@ module.exports = {
     },
     async edit (participante){
         try{
-            let { nome, cpf , email, senha }  = participante;
+            let { _id, nome, cpf , email, senha }  = participante;
             const retornParticipante = await Participante.updateOne(
                 { _id : _id}, {$set : { nome , email ,senha, cpf }}
          ); 

@@ -24,7 +24,7 @@ module.exports = {
         try {
             let Participante =  await ParticipanteRepository.edit(request.body);
            return response.json({
-                "mensagem" : "Participante criado com sucesso!",
+                "mensagem" : "Participante atualizado com sucesso!",
                 "status" : 200,
                 "participante" :Participante            
             }); 

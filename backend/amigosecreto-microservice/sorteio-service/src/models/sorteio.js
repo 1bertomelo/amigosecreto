@@ -5,7 +5,7 @@ const sorteioSchema = new mongoose.Schema({
         type: Date,
         default: Date.now()},
     idGrupo : String,
-    participantes : [{
+    participantes : [{  
         _idParticipante : String,
         nomeParticipante : String,
         _idAmigo : String,
