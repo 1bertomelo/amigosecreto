@@ -86,7 +86,6 @@ module.exports = {
     },
     async getGruposByResponsavel (request, response){
         let { idResponsavel }  = request.params;
-        console.log(idResponsavel);
         let Grupos =  await GrupoRepository.getGrupoByIdResponsavel(idResponsavel);
         
         if (Grupos === null) {
@@ -105,8 +104,7 @@ module.exports = {
 
     },
     async getGruposByParticipante (request, response){
-        let { idParticipante }  = request.params;
-        console.log(idParticipante);
+        let { id, idParticipante }  = request.params;
         let Grupos =  await GrupoRepository.getGrupoByIdParticipante(idParticipante);
         
         if (Grupos === null) {

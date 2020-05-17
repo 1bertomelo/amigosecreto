@@ -66,12 +66,7 @@ module.exports = {
     },
     async getGrupoByIdResponsavel (_idResponsavel){
         try{
-            console.log("oi");
-            console.log(_idResponsavel);
             const retornGrupo = await Grupo.find({"responsavel._idResponsavel" : _idResponsavel}); 
-            console.log(retornGrupo);
-            
-            
             return retornGrupo;
         }
         catch (err) {
@@ -80,12 +75,9 @@ module.exports = {
         return null;
     },
     async getGrupoByIdParticipante (_idParticipante){
-        try{
-            console.log("oi");
-            const retornGrupo = await Grupo.find({	participantes : {$elemMatch :{ "_idParticipante" : _idParticipante}}}); 
-            console.log(retornGrupo);
-            
-
+        try{            
+            const retornGrupo = await Grupo.find({ participantes : 
+                {$elemMatch :{ "_idParticipante" : _idParticipante}}}); 
             return retornGrupo;
         }
         catch (err) {

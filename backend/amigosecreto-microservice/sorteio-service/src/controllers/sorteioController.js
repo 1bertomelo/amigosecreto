@@ -1,5 +1,4 @@
 const SorteioRepository = require('../repositories/sorteioRepository');
-
 module.exports = {
     async sortear (request, response){      
         try {
@@ -10,18 +9,15 @@ module.exports = {
                                     idParticipante: item._idParticipante,
                                     nomeParticipante: item.nomeParticipante 
                                 }));
-            novoArray = novoArray.sort((a, b) => a.ordem - b.ordem);
-            
+            novoArray = novoArray.sort((a, b) => a.ordem - b.ordem);            
             let i=0;         
             for(let i=0;i< participantes.length;i++){
                 let auxIndex = novoArray.findIndex(item => item.idParticipante !== participantes[i]._idParticipante);
                 participantes[i]._idAmigo = novoArray[auxIndex].idParticipante;
                 participantes[i].nomeAmigo = novoArray[auxIndex].nomeParticipante;
                 novoArray = novoArray.filter(item => item.idParticipante !== participantes[i]._idAmigo);                 
-            }
-            
+            }            
             grupo.participantes = participantes;
-            console.log(grupo);
             await SorteioRepository.create(grupo);
             return response.json({
                 "mensagem" : "Sorteio criado com sucesso!",
@@ -37,6 +33,4 @@ module.exports = {
             });
         }
     },
-
-
 }
