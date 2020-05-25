@@ -49,9 +49,10 @@ module.exports = {
 
     async getById (request, response){
         let { id }  = request.params;
+        console.log(id);
         let Participante =  await ParticipanteRepository.getById(id);
-        
-        if (Participante === null) {
+        console.log(`resposta ${Participante}`);
+        if (Participante === null || Participante === "") {
             response.status(404);           
             return  response.json({
                 "mensagem" : "Participante não encontrado!",
@@ -64,7 +65,7 @@ module.exports = {
             "status" : 200,
             "participante" :Participante            
         }); 
-
+        
     },
 
 }

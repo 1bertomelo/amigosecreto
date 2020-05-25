@@ -5,7 +5,9 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.9.13"
+    "mongoose": "^5.9.13",
+    "swagger-jsdoc": "^4.0.0",
+    "swagger-ui-express": "^4.1.4"
   },
   "scripts": {
     "dev": "yarn nodemon ./src/index.js",
